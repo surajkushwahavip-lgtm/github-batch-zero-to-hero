@@ -3,16 +3,17 @@ on:
   push:
     branches:
       - main
-jobs: null
-greet:
-  runs-on: ubuntu-latest
-  steps:
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
     - name: say hello to users
       run: echo "Hellow Dosto"
     - name: say hello to username
       run: echo "Hello $USER"
-details:
-  runs-on: ubuntu-latest
-  steps:
-    -name: version of python, docker, etc
-    run: docker --version && python --version
+
+  details:  
+    runs-on: ubuntu-latest
+    steps:
+      - name: version of python, docker, etc
+        run: docker --version && python --version
