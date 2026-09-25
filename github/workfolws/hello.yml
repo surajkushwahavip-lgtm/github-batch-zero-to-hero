@@ -10,17 +10,17 @@ jobs:
 
 # this is the name of the job
 greet:
-# this is the name of the job, each job runs on a runner
+  # this is the name of the job, each job runs on a runner
   runs-on: ubuntu-latest
   steps:
     - name: say hello to users
-    run: echo "Hellow Dosto"
+      run: echo "Hellow Dosto"
 
     - name: say hello to username
-    run: echo "Hello $USER"
+      run: echo "Hello $USER"
 
     details:
       runs-on: ubuntu-latest
       steps:
         -name: version of python, docker, etc
-          run: docker --version && python --version
+         run: docker --version && python --version
