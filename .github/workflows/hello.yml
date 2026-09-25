@@ -2,14 +2,13 @@
 name: Hello 
 # runs on a trigger, whenever change is pushed to branch (deployment)
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:  
 
 # these are jobs inside the workflow
 jobs:
 
-# this is the name of the job
-greet:
+ # this is the name of the job
+ greet:
   # this is the name of the job, each job runs on a runner
   runs-on: ubuntu-latest
   steps:
@@ -19,8 +18,8 @@ greet:
     - name: say hello to username
       run: echo "Hello $USER"
 
-    details:
-      runs-on: ubuntu-latest
-      steps:
-        -name: version of python, docker, etc
-         run: docker --version && python --version
+ details:
+    runs-on: ubuntu-latest
+    steps:
+     - name: version of python, docker, etc
+       run: docker --version && python --version
