@@ -5,24 +5,28 @@ name: CICD
 on:
   workflow_dispatch:
 
-jobs:  
+jobs:
+  # every job needs seperate runner, its called paralledlism
   Code:  
     runs-on: ubuntu-latest
     steps:
     - name: checkout code
       run: echo "COde Clone from GitHub"
   bulid:
+    needs: [Code]
     runs-on: ubuntu-latest
     steps:
       - name: Build Docker Container
         run: echo "Docker Container build"
   test:
+    needs: [bulid]
     runs-on: ubuntu-latest
     steps:
       - name: Test the container 
         run: echo "Testing the container"
 
   deploy:
+    needs: [bulid,test]
     runs-on: ubuntu-latest
     steps:
       - name: Deploying the app
